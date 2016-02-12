@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>Contacts</title>
+</head>
+<body>
+  <div class='jumbotron'>
+    <h1>Create a Contact Book!</h1>
+  </div>
+  <div class='container'>
+    <div>
+      <h2>Contacts:</h2>
+    </div>
+    <div>
+      {% if contacts is not empty %}
+        {% for contact in contacts %}
+          <div>
+            <h3>Name: {{ contact.getName }}</h3>
+            <div>
+              <p>Number: {{ contact.getNumber }}</p>
+              <p>Address: {{ contact.getAddress }}</p>
+            </div>
+            <br>
+          {% endfor %}
+        {% endif %}
+
+        <div>
+          <form action="/contact_form">
+            <button type="submit">Create Contact</button>
+          </form>
+          <form action="/delete_contact" method="post">
+            <button type="submit">Clear</button>
+          </form>
+        </div>
+      </div>
+
+    </body>
+    </html>
